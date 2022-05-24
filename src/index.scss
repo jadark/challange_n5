@@ -9,10 +9,7 @@ body {
   background: #e2e1e0;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}
+$colorBtn: #154db5;
 .wrapper{
   max-width: 1200px;
   margin: 0 auto;
@@ -39,8 +36,91 @@ code {
     }
     &__bottom{
       padding: 1rem;
-      p{
-        margin: 0;
+    }
+  }
+}
+.btn {
+	position: relative;
+	display: block;
+	overflow: hidden;
+	border-width: 0;
+	outline: none;
+	border-radius: 3px;
+	box-shadow: 0 1px 4px rgba(0, 0, 0, .4);
+	background-color: #999999;
+	color: #ecf0f1;
+	transition: background-color .3s;
+  border: 0;
+  padding: 0.8rem 0.6rem;
+  min-width: 80px;
+  text-align:center;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all ease-in-out .3s;
+  margin: 0 auto;
+	&:hover {
+		background-color: #848484;
+        box-shadow: 0 1px 4px rgba(0, 0, 0, .4);
+        outline: none;
+	}
+	&:focus {
+		background-color: #848484;
+        box-shadow: 0 1px 4px rgba(0, 0, 0, .4);
+        outline: none;
+	}
+	>* {
+		position: relative;
+	}
+	&:before {
+		content: "";
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		display: block;
+		width: 0;
+		padding-top: 0;
+		border-radius: 100%;
+		background-color: rgba(236, 240, 241, .3);
+		-webkit-transform: translate(-50%, -50%);
+		-moz-transform: translate(-50%, -50%);
+		-ms-transform: translate(-50%, -50%);
+		-o-transform: translate(-50%, -50%);
+		transform: translate(-50%, -50%);
+	}
+	&:active {
+		&:before {
+			width: 120%;
+			padding-top: 120%;
+			transition: width .2s ease-out, padding-top .2s ease-out;
+		}
+	}
+  &.info{
+      background-color: $colorBtn;
+      &:hover, &:focus{
+          background-color: darken($colorBtn, 10%);
+      }
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    color: #eee;
+    background: #2c2c2c;
+  }
+
+  body a {
+    color: #809fff;
+  }
+  .list_product{
+    &__item{
+      background-color: #353535;
+    }
+  }
+  .btn{
+    &.info {
+      background-color: #878787;
+      &:hover, &:focus{
+        background-color: darken(#878787, 10%);
       }
     }
   }

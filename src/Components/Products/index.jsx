@@ -15,7 +15,7 @@ const Products = () => {
                             <p>
                                 {product.name} - S/{product.price}
                             </p>
-                            <button onClick={() => addItemToCart(product )}>Agregar al carrito</button>
+                            <button className="btn info" onClick={() => addItemToCart(product )}>Agregar al carrito</button>
                         </div>
                     </div>
                 ))}
