@@ -12,9 +12,8 @@ const Products = () => {
                             <img src={product.image} alt={product.name} />
                         </div>
                         <div className='list_product__item__bottom'>
-                            <p>
-                                {product.name} - S/{product.price}
-                            </p>
+                            <p className='list_product__item__title'>{product.name}</p>
+                            <p className='list_product__item__price'>S/{product.price}</p>
                             <button className="btn info" onClick={() => addItemToCart(product )}>Agregar al carrito</button>
                         </div>
                     </div>

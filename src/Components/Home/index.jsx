@@ -1,16 +1,14 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Products from './../Products';
-import Cart from './../Cart';
+import Header from './../Header';
 
-class Home extends Component {
-    render() {
-        return (
-            <div>
-                <Cart />
-                <Products />
-            </div>
-        );
-    }
+const Home = () => {
+    return (
+        <main>
+            <Header />
+            <Products />
+        </main>
+    );
 }
 
 export default Home;

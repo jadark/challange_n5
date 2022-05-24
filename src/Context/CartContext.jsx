@@ -13,12 +13,11 @@ export const CartProvider = ({ children }) => {
 
     useEffect(() => {
         localStorage.setItem('cartPRoducts', JSON.stringify(cartItems));
-        console.log({cartItems})
+        // console.log({cartItems})
     }, [cartItems]);
     
     const addItemToCart = (product) => {
         const inCart = cartItems.find((prouctInCart) => prouctInCart.id === product.id);
-        
         if (inCart) {
             setCartItems(
                 cartItems.map((productInCart) => {
@@ -34,21 +33,30 @@ export const CartProvider = ({ children }) => {
 
     const deleteItemToCart = (product) => {
         const inCart = cartItems.find((prouctInCart) => prouctInCart.id === product.id);
-        if (inCart.amout === 1) {
+        if (inCart.amount === 1) {
             setCartItems(
                 cartItems.filter((productInCart) => productInCart.id !== product.id)
             );
-        }else{
-            setCartItems((productInCart) => {
-                if (productInCart.id === product.id) {
-                    return { ...inCart, amount: inCart.amount - 1 }
-                } else return productInCart;
-            })
+        } else {
+            setCartItems(
+                cartItems.map((productInCart) => {
+                    if (productInCart.id === product.id) {
+                        return { ...inCart, amount: inCart.amount - 1 }
+                    } else return productInCart;
+                })
+            )
         }
+    }
+    const deleteItem = (product) => {
+        const inCart = cartItems.find((prouctInCart) => prouctInCart.id === product.id);
+        console.log({inCart})
+        setCartItems(
+            cartItems.filter((productInCart) => productInCart.id !== product.id)
+        );
     }
 
     return (
-        <CartContext.Provider value={{cartItems, addItemToCart, deleteItemToCart}}>
+        <CartContext.Provider value={{cartItems, addItemToCart, deleteItemToCart, deleteItem}}>
             {children }
         </CartContext.Provider>
     )

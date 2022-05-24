@@ -1,0 +1,39 @@
+body.dark-mode{
+    color: #eee;
+    background: $darkfull;
+    a {
+        color: #809fff;
+    }
+    .list_product{
+        &__item{
+        background-color: #353535;
+        }
+    }
+    .btn{
+        &.info {
+        background-color: $darkLight;
+        &:hover, &:focus{
+            background-color: darken($darkLight, 10%);
+        }
+        }
+    }
+    .header{
+        background-color: #353535;
+        &__cart{
+            &__container{
+                background-color: #353535;
+            }
+            &__list{
+                &__item{
+                    &__buttons{
+                        button{
+                            background-color: $darkLight;
+                            color: #eee;
+                            border: 1px solid #eee;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
